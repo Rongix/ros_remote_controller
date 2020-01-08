@@ -1,10 +1,9 @@
-# thumbstick
+# ROS Teleop Application
 
-A new Flutter application.
+This is a Flutter multiplatform project for interacting with ROS Robots based on ROS Melodic/Kinetic. Main function of the app is teleoperation of robots using virtual controller and camera view from the web server. 
+For interfacing with ROS we use https://github.com/Sashiri/ros_nodes please check it out. 
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
