@@ -12,17 +12,13 @@ class _LoginScreen extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   elevation: 2.0,
-      //   backgroundColor: Colors.white,
-      //   brightness: Brightness.light,
-      //   leading: IconButton(
-      //     icon: const BackButtonIcon(),
-      //     tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-      //   ),
-      // ),
-      backgroundColor: Colors.white,
-      body: SafeArea(
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(begin: Alignment.topCenter, colors: [
+          Colors.orange[300],
+          Colors.blue[200],
+        ])),
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
           children: <Widget>[
@@ -89,3 +85,4 @@ class _LoginScreen extends State<LoginScreen> {
     );
   }
 }
+

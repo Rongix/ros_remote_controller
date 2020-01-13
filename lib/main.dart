@@ -21,8 +21,12 @@ void main() {
       systemNavigationBarColor: Colors.white,
     ),
   );
-
-  runApp(TestingLogin());
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
+    ),
+  );
 }
 
 class TestingLogin extends StatelessWidget {
@@ -81,7 +85,10 @@ class MyApp extends StatelessWidget {
                       //"http://pop-os:8080/stream?topic=/cv_camera/image_raw",
                       //"http://pop-os:8080/stream?topic=/cv_camera/image_raw&type=mjpeg&quality=100&width=640&height=400&default_transport=compressed",
                       //'http://192.168.1.11:8080/stream_viewer?topic=/cv_camera/image_raw&type=mjpeg&quality=100&width=640&height=400&default_transport=compressed',
-                      'http://192.168.1.11:8080/stream?topic=/cv_camera/image_raw&type=mjpeg&quality=100&width=640&height=400&default_transport=compressed',
+
+                      //SOWA OS
+                      'http://192.168.43.145:8080/stream?topic=/cv_camera/image_raw&type=mjpeg&quality=50&width=640&height=400&default_transport=compressed',
+                  //'http://192.168.43.145:8080/stream?topic=/people_detect/image&type=mjpeg&quality=100&width=640&height=400&default_transport=compressed',
                 ),
               ),
             ),
