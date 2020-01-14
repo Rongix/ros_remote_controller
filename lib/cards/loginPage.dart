@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:thumbstick/my_flutter_app_icons.dart';
 import 'homePage.dart';
+import 'package:thumbstick/my_flutter_app_icons.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -199,13 +201,19 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           IconButton(
-                            icon: Icon(Icons.tag_faces),
+                            icon: Icon(MyFlutterApp.twitter_brands),
+                            color: Colors.grey,
+                            onPressed: () {},
                           ),
                           IconButton(
-                            icon: Icon(Icons.photo_camera),
+                            icon: Icon(MyFlutterApp.facebook_brands),
+                            color: Colors.grey,
+                            onPressed: () {},
                           ),
                           IconButton(
-                            icon: Icon(Icons.pin_drop),
+                            icon: Icon(MyFlutterApp.google_brands),
+                            color: Colors.grey,
+                            onPressed: () {},
                           ),
                         ],
                       ),
