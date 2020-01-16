@@ -42,10 +42,10 @@ class _AnalogThumbStickState extends State<AnalogThumbStick> {
   _AnalogThumbStickState(this.baseSize, this.stickSize, this.onStickMove) {
     radius = baseSize / 2;
     msg = GeometryMsgsTwist();
-    var config = RosNode('http://192.168.1.11:11311/', '192.168.1.14', 51235);
-    var publisher = RosPublisher('sticky_publisher', 'cmd_vel', msg, config,
-        publishInterval: Duration(milliseconds: 100));
-    publisher.register();
+    // var config = RosNode('http://192.168.1.11:11311/', '192.168.1.14', 51235);
+    // var publisher = RosPublisher('sticky_publisher', 'cmd_vel', msg, config,
+    //     publishInterval: Duration(milliseconds: 100));
+    // publisher.register();
 
     onStickMove = (offset) {
       msg.linear.x = -offset.dy * 0.4;

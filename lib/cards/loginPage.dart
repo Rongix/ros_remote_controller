@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thumbstick/my_flutter_app_icons.dart';
 import 'homePage.dart';
-import 'package:thumbstick/my_flutter_app_icons.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);

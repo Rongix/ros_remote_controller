@@ -4,35 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-//THIS IS ONLY A TEST
-class CameraPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Home Page"),
-      ),
-      body: Center(
-        child: FlatButton(
-          child: Text("Open TutiCamera"),
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (BuildContext context) => MyWebView(
-                  title: "TutiBotView",
-                  selectedUrl:
-                      //"http://pop-os:8080/stream?topic=/cv_camera/image_raw",
-                      'http://192.168.1.11:8080/stream?topic=/cv_camera/image_raw&type=mjpeg&quality=100&width=640&height=400&default_transport=compressed',
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
-
 // class WebContainer extends StatefulWidget {
 //   WebContainer({Key key}) : super(key: key);
 
@@ -116,6 +87,6 @@ class MyWebView extends StatelessWidget {
     //   url: selectedUrl,
     //   withJavascript: true,
     //   withZoom: true,
-    // ),
+    // );
   }
 }

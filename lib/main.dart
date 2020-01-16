@@ -3,14 +3,11 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:thumbstick/cards/loginPage.dart';
 
+import 'cards/homePage.dart';
 import 'rpiCamera.dart';
 import 'analogThumbStick.dart';
-import 'login.dart';
-import 'splashScreen.dart';
-import 'cards/loginPage.dart';
-
-//void main() => runApp(LoginScreen());
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -24,36 +21,13 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
+      //home: LoginPage(),
       home: LoginPage(),
     ),
   );
 }
 
-class TestingLogin extends StatelessWidget {
-  const TestingLogin({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          accentColor: Colors.amberAccent, primaryColor: Colors.black),
-      home: LoginPage(),
-    );
-  }
-}
-
-class TestingSplashScreen extends StatelessWidget {
-  const TestingSplashScreen({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SplashScreen(),
-    );
-  }
-}
-
-class MyApp extends StatelessWidget {
+class RemoteController extends StatelessWidget {
   // This widget is the root of your application.
 
   @override
@@ -69,7 +43,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0.0,
-          title: Text('Remote Control'),
+          title: Text('Drive'),
           bottomOpacity: 50.0,
         ),
         //body: LoginScreen(),
