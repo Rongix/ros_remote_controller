@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:thumbstick/main.dart';
 
+import 'mapNavigation.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
@@ -50,26 +52,35 @@ List<Activity> activity = [
 ];
 
 class _HomePageState extends State<HomePage> {
+  var _display = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.amberAccent),
+      theme: ThemeData(primaryColor: Colors.white),
       home: Scaffold(
         backgroundColor: Colors.grey[100],
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
               //title: Text("Tuti App Center"),
-              pinned: true,
+              pinned: false,
               floating: false,
               expandedHeight: 250,
               centerTitle: true,
               forceElevated: false,
+              onStretchTrigger: () {
+                _display = true;
+              },
+              stretchTriggerOffset: 1,
+              title: Text("Wybierz aktywność",
+                  style: TextStyle(
+                      color: _display ? Colors.black : Colors.transparent)),
 
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
-                  "TutiCenter",
+                  "OldiCenter",
                   style: TextStyle(color: Colors.white),
                 ),
                 centerTitle: true,
@@ -91,7 +102,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisCount: 2,
               children: [
                 FlatButton(
-                    color: Colors.grey[50],
+                    //color: Colors.grey[50],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -107,9 +118,8 @@ class _HomePageState extends State<HomePage> {
                         Text("Drink Water"),
                       ],
                     )),
-
                 FlatButton(
-                    color: Colors.grey[100],
+                    //color: Colors.grey[100],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -126,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     )),
                 FlatButton(
-                    color: Colors.grey[150],
+                    //color: Colors.grey[150],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -144,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                     )),
                 //REMOTE CONTROLLER
                 FlatButton(
-                    color: Colors.grey[50],
+                    //color: Colors.grey[50],
                     onPressed: () {
                       Navigator.push(
                           context,
@@ -156,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
                         CircleAvatar(
                           radius: 30,
-                          backgroundColor: Colors.black12,
+                          backgroundColor: Colors.transparent,
                           child: Icon(
                             Icons.android,
                             size: 40,
@@ -170,24 +180,27 @@ class _HomePageState extends State<HomePage> {
                       ],
                     )),
                 FlatButton(
-                    color: Colors.grey[50],
-                    onPressed: () {},
+                    //color: Colors.grey[50],
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MapPage()));
+                    },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.check_circle,
+                          Icons.map,
                           size: 40,
                           color: Colors.orange[300],
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text("Drink Water"),
+                        Text("Map Navigation"),
                       ],
                     )),
                 FlatButton(
-                    color: Colors.grey[100],
+                    //color: Colors.grey[100],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -204,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     )),
                 FlatButton(
-                    color: Colors.grey[100],
+                    //color: Colors.grey[100],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -221,7 +234,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     )),
                 FlatButton(
-                    color: Colors.grey[50],
+                    //color: Colors.grey[50],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -240,23 +253,23 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             // SLIVER LIST EXAMPLE HERE
-            SliverToBoxAdapter(
-              child: Container(
-                height: 30,
-              ),
-            ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return Container(
-                    height: 100,
-                    child: Text('LIST ITEM HERE...'),
-                  );
-                },
-                childCount: 20,
-                semanticIndexOffset: 2,
-              ),
-            )
+            // SliverToBoxAdapter(
+            //   child: Container(
+            //     height: 30,
+            //   ),
+            // ),
+            // SliverList(
+            //   delegate: SliverChildBuilderDelegate(
+            //     (BuildContext context, int index) {
+            //       return Container(
+            //         height: 100,
+            //         child: Text('LIST ITEM HERE...'),
+            //       );
+            //     },
+            //     childCount: 20,
+            //     semanticIndexOffset: 2,
+            //   ),
+            // )
           ],
         ),
       ),
