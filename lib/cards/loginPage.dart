@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                           Padding(
                             padding: EdgeInsets.all(10),
                             child: Text(
-                              "TutiCenter",
+                              "Oldi",
                               style: TextStyle(
                                 color: Colors.black45,
                                 fontSize: 30,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thumbstick/cards/zdrowie.dart';
 import 'package:thumbstick/main.dart';
 
 import 'mapNavigation.dart';
@@ -52,8 +53,6 @@ List<Activity> activity = [
 ];
 
 class _HomePageState extends State<HomePage> {
-  var _display = false;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -68,22 +67,24 @@ class _HomePageState extends State<HomePage> {
               pinned: false,
               floating: false,
               expandedHeight: 250,
-              centerTitle: true,
+              centerTitle: false,
               forceElevated: false,
-              onStretchTrigger: () {
-                _display = true;
-              },
-              stretchTriggerOffset: 1,
-              title: Text("Wybierz aktywność",
-                  style: TextStyle(
-                      color: _display ? Colors.black : Colors.transparent)),
+              backgroundColor: Colors.grey[100],
 
               flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                  "OldiCenter",
-                  style: TextStyle(color: Colors.white),
+                title: RichText(
+                  text: TextSpan(children: <TextSpan>[
+                    TextSpan(
+                        text: "Oldi\n",
+                        style:
+                            TextStyle(fontSize: 30, color: Colors.grey[100])),
+                    TextSpan(
+                        text: "Twój Robot Asystent",
+                        style:
+                            TextStyle(fontSize: 15, color: Colors.grey[100])),
+                  ]),
                 ),
-                centerTitle: true,
+                centerTitle: false,
                 background: Image.asset(
                   'Images/robot_render.png',
                   fit: BoxFit.cover,
@@ -98,24 +99,45 @@ class _HomePageState extends State<HomePage> {
                 //titlePadding: EdgeInsets.all(65),
               ),
             ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 10,
+              ),
+            ),
+            
+            SliverToBoxAdapter(
+              child: Padding(padding: EdgeInsets.only(left: 70),
+              child: Text("Aktywności", style: TextStyle(fontSize: 30, color: Colors.grey))),
+            ),
+            // GRID ACTIVITIES
             SliverGrid.count(
               crossAxisCount: 2,
+              childAspectRatio: 1.2,
+
               children: [
                 FlatButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ZdrowiePage()));
+                    },
                     //color: Colors.grey[50],
-                    onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.people,
-                          size: 40,
-                          color: Colors.blue,
+                          Icons.favorite,
+                          size: 70,
+                          color: Colors.red,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text("Drink Water"),
+                        Text(
+                          "Zdrowie",
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ],
                     )),
                 FlatButton(
@@ -125,14 +147,17 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.whatshot,
-                          size: 40,
-                          color: Colors.red,
+                          Icons.local_drink,
+                          size: 65,
+                          color: Colors.blueAccent,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text("Drink Water"),
+                        Text(
+                          "Woda",
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ],
                     )),
                 FlatButton(
@@ -142,14 +167,117 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.call,
-                          size: 40,
+                          Icons.calendar_today,
+                          size: 65,
+                          color: Colors.amber,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Kalendarz",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    )),
+                FlatButton(
+                    //color: Colors.grey[100],
+                    onPressed: () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.directions_bike,
+                          size: 70,
                           color: Colors.green,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text("Drink Water"),
+                        Text(
+                          "Sport",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    )),
+              ],
+            ),
+            
+            // GRID HELP OPTIONS
+            SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 10,
+              ),
+            ),
+            
+            SliverToBoxAdapter(
+              child: Padding(padding: EdgeInsets.only(left: 70),
+              child: Text("Wezwij Pomoc!", style: TextStyle(fontSize: 30, color: Colors.grey))),
+            ),
+            SliverGrid.count(
+              crossAxisCount: 2,
+              childAspectRatio: 1.3,
+              children: <Widget>[
+                FlatButton(
+                    //color: Colors.grey[100],
+                    onPressed: () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.local_hospital,
+                          size: 70,
+                          color: Colors.red,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Pomoc",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    )),
+              ],
+            ),
+            // GRID DEVELOPMENT OPTIONS
+            SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 10,
+              ),
+            ),
+            
+            SliverToBoxAdapter(
+              child: Padding(padding: EdgeInsets.only(left: 70),
+              child: Text("Opiekun", style: TextStyle(fontSize: 30, color: Colors.grey))),
+            ),
+            SliverGrid.count(
+              crossAxisCount: 2,
+              childAspectRatio: 1.2,
+              children: <Widget>[
+                FlatButton(
+                    //color: Colors.grey[50],
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MapPage()));
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.map,
+                          size: 70,
+                          color: Colors.orangeAccent,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Mapa",
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ],
                     )),
                 //REMOTE CONTROLLER
@@ -164,90 +292,18 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.transparent,
-                          child: Icon(
-                            Icons.android,
-                            size: 40,
-                            color: Colors.black45,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("Drive"),
-                      ],
-                    )),
-                FlatButton(
-                    //color: Colors.grey[50],
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => MapPage()));
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
                         Icon(
-                          Icons.map,
-                          size: 40,
-                          color: Colors.orange[300],
+                          Icons.android,
+                          size: 60,
+                          color: Colors.orangeAccent,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text("Map Navigation"),
-                      ],
-                    )),
-                FlatButton(
-                    //color: Colors.grey[100],
-                    onPressed: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.color_lens,
-                          size: 40,
-                          color: Colors.amber,
+                        Text(
+                          "Robot",
+                          style: TextStyle(fontSize: 20),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("Drink Water"),
-                      ],
-                    )),
-                FlatButton(
-                    //color: Colors.grey[100],
-                    onPressed: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.favorite,
-                          size: 40,
-                          color: Colors.red,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("RoboFeel"),
-                      ],
-                    )),
-                FlatButton(
-                    //color: Colors.grey[50],
-                    onPressed: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.battery_unknown,
-                          size: 40,
-                          color: Colors.green[100],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("RoboHealth"),
                       ],
                     )),
               ],
