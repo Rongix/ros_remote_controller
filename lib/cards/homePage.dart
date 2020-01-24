@@ -72,6 +72,10 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Colors.grey[100],
 
               flexibleSpace: FlexibleSpaceBar(
+                stretchModes: <StretchMode>[
+                  StretchMode.blurBackground,
+                  StretchMode.fadeTitle,
+                ],
                 title: RichText(
                   text: TextSpan(children: <TextSpan>[
                     TextSpan(
@@ -85,12 +89,21 @@ class _HomePageState extends State<HomePage> {
                   ]),
                 ),
                 centerTitle: false,
-                background: Image.asset(
-                  'Images/robot_render.png',
-                  fit: BoxFit.cover,
-                  //color: Colors.white,
-                  //colorBlendMode: BlendMode.softLight,
-                ),
+                background: Stack(fit: StackFit.expand, children: <Widget>[
+                  Image.asset(
+                    'Images/robot_render.png',
+                    fit: BoxFit.cover,
+                    //color: Colors.white,
+                    //colorBlendMode: BlendMode.softLight,
+                  ),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment(0.0, 0.9),
+                            end: Alignment(0.0, 0.0),
+                            colors: <Color>[Colors.black54, Colors.black12])),
+                  )
+                ]),
                 // background: Image.network(
                 //     "https://previews.123rf.com/images/kurhan/kurhan1412/kurhan141200274/34363343-happy-people-.jpg",
                 //     fit: BoxFit.cover),
@@ -104,16 +117,17 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
             ),
-            
+
             SliverToBoxAdapter(
-              child: Padding(padding: EdgeInsets.only(left: 70),
-              child: Text("Aktywności", style: TextStyle(fontSize: 30, color: Colors.grey))),
+              child: Padding(
+                  padding: EdgeInsets.only(left: 70),
+                  child: Text("Aktywności",
+                      style: TextStyle(fontSize: 30, color: Colors.grey))),
             ),
             // GRID ACTIVITIES
             SliverGrid.count(
               crossAxisCount: 2,
               childAspectRatio: 1.2,
-
               children: [
                 FlatButton(
                     onPressed: () {
@@ -202,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                     )),
               ],
             ),
-            
+
             // GRID HELP OPTIONS
             SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
             SliverToBoxAdapter(
@@ -210,10 +224,12 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
             ),
-            
+
             SliverToBoxAdapter(
-              child: Padding(padding: EdgeInsets.only(left: 70),
-              child: Text("Wezwij Pomoc!", style: TextStyle(fontSize: 30, color: Colors.grey))),
+              child: Padding(
+                  padding: EdgeInsets.only(left: 70),
+                  child: Text("Wezwij Pomoc!",
+                      style: TextStyle(fontSize: 30, color: Colors.grey))),
             ),
             SliverGrid.count(
               crossAxisCount: 2,
@@ -248,10 +264,12 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
             ),
-            
+
             SliverToBoxAdapter(
-              child: Padding(padding: EdgeInsets.only(left: 70),
-              child: Text("Opiekun", style: TextStyle(fontSize: 30, color: Colors.grey))),
+              child: Padding(
+                  padding: EdgeInsets.only(left: 70),
+                  child: Text("Opiekun",
+                      style: TextStyle(fontSize: 30, color: Colors.grey))),
             ),
             SliverGrid.count(
               crossAxisCount: 2,
