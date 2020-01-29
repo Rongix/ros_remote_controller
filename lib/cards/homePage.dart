@@ -101,7 +101,10 @@ class _HomePageState extends State<HomePage> {
                         gradient: LinearGradient(
                             begin: Alignment(0.0, 0.9),
                             end: Alignment(0.0, 0.0),
-                            colors: <Color>[Colors.black54, Colors.black12])),
+                            colors: <Color>[
+                          Colors.black26,
+                          Colors.transparent
+                        ])),
                   )
                 ]),
                 // background: Image.network(
@@ -122,14 +125,19 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                   padding: EdgeInsets.only(left: 70),
                   child: Text("Aktywności",
-                      style: TextStyle(fontSize: 30, color: Colors.grey))),
+                      style: TextStyle(
+                        fontSize: 20,
+                        //color: Colors.grey,
+                      ))),
             ),
             // GRID ACTIVITIES
             SliverGrid.count(
               crossAxisCount: 2,
-              childAspectRatio: 1.2,
+              childAspectRatio: 1.3,
               children: [
                 FlatButton(
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.red[100],
                     onPressed: () {
                       Navigator.push(
                           context,
@@ -150,12 +158,14 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Zdrowie",
-                          style: TextStyle(fontSize: 20),
+                          //style: TextStyle(fontSize: 20),
                         ),
                       ],
                     )),
                 FlatButton(
                     //color: Colors.grey[100],
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.blue[100],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -170,12 +180,14 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Woda",
-                          style: TextStyle(fontSize: 20),
+                          //style: TextStyle(fontSize: 20),
                         ),
                       ],
                     )),
                 FlatButton(
                     //color: Colors.grey[150],
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.amber[100],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -190,19 +202,21 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Kalendarz",
-                          style: TextStyle(fontSize: 20),
+                          //style: TextStyle(fontSize: 20),
                         ),
                       ],
                     )),
                 FlatButton(
                     //color: Colors.grey[100],
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.green[100],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
                           Icons.directions_bike,
-                          size: 70,
+                          size: 65,
                           color: Colors.green,
                         ),
                         SizedBox(
@@ -210,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Sport",
-                          style: TextStyle(fontSize: 20),
+                          //style: TextStyle(fontSize: 20),
                         ),
                       ],
                     )),
@@ -229,7 +243,10 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                   padding: EdgeInsets.only(left: 70),
                   child: Text("Wezwij Pomoc!",
-                      style: TextStyle(fontSize: 30, color: Colors.grey))),
+                      style: TextStyle(
+                        fontSize: 20,
+                        //color: Colors.grey,
+                      ))),
             ),
             SliverGrid.count(
               crossAxisCount: 2,
@@ -237,13 +254,15 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 FlatButton(
                     //color: Colors.grey[100],
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.red[100],
                     onPressed: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
                           Icons.local_hospital,
-                          size: 70,
+                          size: 65,
                           color: Colors.red,
                         ),
                         SizedBox(
@@ -251,7 +270,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Pomoc",
-                          style: TextStyle(fontSize: 20),
+                          //style: TextStyle(fontSize: 20),
                         ),
                       ],
                     )),
@@ -269,14 +288,19 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                   padding: EdgeInsets.only(left: 70),
                   child: Text("Opiekun",
-                      style: TextStyle(fontSize: 30, color: Colors.grey))),
+                      style: TextStyle(
+                        fontSize: 20,
+                        //color: Colors.grey,
+                      ))),
             ),
             SliverGrid.count(
               crossAxisCount: 2,
-              childAspectRatio: 1.2,
+              childAspectRatio: 1.3,
               children: <Widget>[
                 FlatButton(
                     //color: Colors.grey[50],
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.orangeAccent[100],
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => MapPage()));
@@ -286,7 +310,7 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
                         Icon(
                           Icons.map,
-                          size: 70,
+                          size: 60,
                           color: Colors.orangeAccent,
                         ),
                         SizedBox(
@@ -294,13 +318,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Mapa",
-                          style: TextStyle(fontSize: 20),
+                          //style: TextStyle(fontSize: 20),
                         ),
                       ],
                     )),
                 //REMOTE CONTROLLER
                 FlatButton(
                     //color: Colors.grey[50],
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.orangeAccent[100],
                     onPressed: () {
                       Navigator.push(
                           context,
@@ -312,7 +338,7 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
                         Icon(
                           Icons.android,
-                          size: 60,
+                          size: 55,
                           color: Colors.orangeAccent,
                         ),
                         SizedBox(
@@ -320,7 +346,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           "Robot",
-                          style: TextStyle(fontSize: 20),
+                          //style: TextStyle(fontSize: 20),
                         ),
                       ],
                     )),
@@ -344,6 +370,11 @@ class _HomePageState extends State<HomePage> {
             //     semanticIndexOffset: 2,
             //   ),
             // )
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
           ],
         ),
       ),

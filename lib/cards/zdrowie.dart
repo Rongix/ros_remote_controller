@@ -11,9 +11,10 @@ class _ZdrowiePageState extends State<ZdrowiePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(title: Text('Zdrowie'),
-       backgroundColor: Colors.black,),
-
+      appBar: AppBar(
+        title: Text('Zdrowie'),
+        backgroundColor: Colors.red,
+      ),
     );
   }
 }

@@ -64,7 +64,7 @@ class _MapPageState extends State<MapPage> {
                   child: Container(
                     height: 250,
                     width: 400,
-                    color: Colors.white.withAlpha(240),
+                    color: Colors.black.withAlpha(20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
