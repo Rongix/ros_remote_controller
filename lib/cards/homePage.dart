@@ -25,33 +25,6 @@ class Activity {
   final Color backgroundColor;
 }
 
-List<Activity> activity = [
-  Activity(
-      name: "Zajecia",
-      icon: Icon(Icons.assignment_ind),
-      backgroundColor: Colors.amberAccent[100]),
-  Activity(
-      name: "Zajecia3",
-      icon: Icon(Icons.assignment_turned_in),
-      backgroundColor: Colors.amberAccent[200]),
-  Activity(
-      name: "Zajecia4",
-      icon: Icon(Icons.battery_full),
-      backgroundColor: Colors.amberAccent[300]),
-  Activity(
-      name: "Zajecia5",
-      icon: Icon(Icons.airline_seat_legroom_normal),
-      backgroundColor: Colors.amberAccent[400]),
-  Activity(
-      name: "Zajecia6",
-      icon: Icon(Icons.add_a_photo),
-      backgroundColor: Colors.amberAccent[100]),
-  Activity(
-      name: "Zajecia7",
-      icon: Icon(Icons.wb_iridescent),
-      backgroundColor: Colors.amberAccent[200]),
-];
-
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -102,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                             begin: Alignment(0.0, 0.9),
                             end: Alignment(0.0, 0.0),
                             colors: <Color>[
-                          Colors.black26,
+                          Colors.black38,
                           Colors.transparent
                         ])),
                   )
@@ -120,264 +93,182 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
             ),
-
-            SliverToBoxAdapter(
-              child: Padding(
-                  padding: EdgeInsets.only(left: 70),
-                  child: Text("Aktywności",
-                      style: TextStyle(
-                        fontSize: 20,
-                        //color: Colors.grey,
-                      ))),
-            ),
-            // GRID ACTIVITIES
+            ActivityHeader(
+                activityName: "Aktywności", fontSize: 22, spacing: 30),
             SliverGrid.count(
               crossAxisCount: 2,
-              childAspectRatio: 1.3,
+              childAspectRatio: 1.2,
               children: [
-                FlatButton(
-                    highlightColor: Colors.transparent,
+                ActivityButton(
                     splashColor: Colors.red[100],
+                    icon: Icon(Icons.favorite, size: 70, color: Colors.red),
+                    label: "Zdrowie",
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => ZdrowiePage()));
-                    },
-                    //color: Colors.grey[50],
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.favorite,
-                          size: 70,
-                          color: Colors.red,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Zdrowie",
-                          //style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )),
-                FlatButton(
-                    //color: Colors.grey[100],
-                    highlightColor: Colors.transparent,
+                    }),
+                ActivityButton(
                     splashColor: Colors.blue[100],
-                    onPressed: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.local_drink,
-                          size: 65,
-                          color: Colors.blueAccent,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Woda",
-                          //style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )),
-                FlatButton(
-                    //color: Colors.grey[150],
-                    highlightColor: Colors.transparent,
+                    icon: Icon(Icons.local_drink,
+                        size: 65, color: Colors.blueAccent),
+                    label: "Woda",
+                    onPressed: () {}),
+                ActivityButton(
                     splashColor: Colors.amber[100],
-                    onPressed: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.calendar_today,
-                          size: 65,
-                          color: Colors.amber,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Kalendarz",
-                          //style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )),
-                FlatButton(
-                    //color: Colors.grey[100],
-                    highlightColor: Colors.transparent,
+                    icon: Icon(Icons.calendar_today,
+                        size: 65, color: Colors.amber),
+                    label: "Kalendarz",
+                    onPressed: () {}),
+                ActivityButton(
                     splashColor: Colors.green[100],
-                    onPressed: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.directions_bike,
-                          size: 65,
-                          color: Colors.green,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Sport",
-                          //style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )),
+                    icon: Icon(Icons.directions_bike,
+                        size: 65, color: Colors.green),
+                    label: "Sport",
+                    onPressed: () {}),
               ],
             ),
-
-            // GRID HELP OPTIONS
             SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 10,
               ),
             ),
-
-            SliverToBoxAdapter(
-              child: Padding(
-                  padding: EdgeInsets.only(left: 70),
-                  child: Text("Wezwij Pomoc!",
-                      style: TextStyle(
-                        fontSize: 20,
-                        //color: Colors.grey,
-                      ))),
-            ),
+            ActivityHeader(
+                activityName: "Wezwij Pomoc!", fontSize: 22, spacing: 30),
             SliverGrid.count(
-              crossAxisCount: 2,
-              childAspectRatio: 1.3,
+              crossAxisCount: 1,
+              childAspectRatio: 2.5,
               children: <Widget>[
-                FlatButton(
-                    //color: Colors.grey[100],
-                    highlightColor: Colors.transparent,
+                ActivityButton(
                     splashColor: Colors.red[100],
-                    onPressed: () {},
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.local_hospital,
-                          size: 65,
-                          color: Colors.red,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Pomoc",
-                          //style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )),
+                    icon:
+                        Icon(Icons.local_hospital, size: 65, color: Colors.red),
+                    label: "Pomoc",
+                    onPressed: () {
+                      callForHelp(context);
+                    }),
               ],
             ),
-            // GRID DEVELOPMENT OPTIONS
             SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 10,
               ),
             ),
-
-            SliverToBoxAdapter(
-              child: Padding(
-                  padding: EdgeInsets.only(left: 70),
-                  child: Text("Opiekun",
-                      style: TextStyle(
-                        fontSize: 20,
-                        //color: Colors.grey,
-                      ))),
-            ),
+            ActivityHeader(activityName: "Opiekun", fontSize: 22, spacing: 30),
             SliverGrid.count(
               crossAxisCount: 2,
-              childAspectRatio: 1.3,
+              childAspectRatio: 1.2,
               children: <Widget>[
-                FlatButton(
-                    //color: Colors.grey[50],
-                    highlightColor: Colors.transparent,
+                ActivityButton(
                     splashColor: Colors.orangeAccent[100],
+                    icon: Icon(Icons.map, color: Colors.orangeAccent, size: 60),
+                    label: "Mapa",
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => MapPage()));
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.map,
-                          size: 60,
-                          color: Colors.orangeAccent,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Mapa",
-                          //style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )),
-                //REMOTE CONTROLLER
-                FlatButton(
-                    //color: Colors.grey[50],
-                    highlightColor: Colors.transparent,
+                    }),
+                ActivityButton(
                     splashColor: Colors.orangeAccent[100],
+                    icon: Icon(Icons.android,
+                        size: 55, color: Colors.orangeAccent),
+                    label: "Robot",
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => RemoteController()));
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.android,
-                          size: 55,
-                          color: Colors.orangeAccent,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Robot",
-                          //style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )),
+                    }),
+                //REMOTE CONTROLLER
               ],
             ),
-            // SLIVER LIST EXAMPLE HERE
-            // SliverToBoxAdapter(
-            //   child: Container(
-            //     height: 30,
-            //   ),
-            // ),
-            // SliverList(
-            //   delegate: SliverChildBuilderDelegate(
-            //     (BuildContext context, int index) {
-            //       return Container(
-            //         height: 100,
-            //         child: Text('LIST ITEM HERE...'),
-            //       );
-            //     },
-            //     childCount: 20,
-            //     semanticIndexOffset: 2,
-            //   ),
-            // )
             SliverToBoxAdapter(
-              child: SizedBox(
-                height: 20,
-              ),
+              child: SizedBox(height: 20),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+void callForHelp(BuildContext context) {
+  var dialog = AlertDialog(
+    title: Text("Wzywam Pomoc!"),
+    content: Text("Pomoc zostanie wezwana automatycznie.Zachowaj spokój."),
+    actions: <Widget>[
+      FlatButton(
+          child: const Text('Odwołaj'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          }),
+      FlatButton(
+          child: const Text('Akceptuj'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          })
+    ],
+  );
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return dialog;
+      });
+}
+
+class ActivityHeader extends StatelessWidget {
+  final String activityName;
+  final double fontSize;
+  final double spacing;
+
+  ActivityHeader({
+    @required this.activityName,
+    @required this.fontSize,
+    @required this.spacing,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+      SizedBox(height: spacing),
+      Text(activityName, style: TextStyle(fontSize: fontSize)),
+      SizedBox(height: spacing)
+    ]));
+  }
+}
+
+class ActivityButton extends StatefulWidget {
+  final Color splashColor;
+  final VoidCallback onPressed;
+  final Icon icon;
+  final String label;
+
+  ActivityButton(
+      {Key key, this.splashColor, this.onPressed, this.icon, this.label})
+      : super(key: key);
+
+  @override
+  _ActivityButtonState createState() => _ActivityButtonState();
+}
+
+class _ActivityButtonState extends State<ActivityButton> {
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      highlightColor: Colors.transparent,
+      splashColor: widget.splashColor,
+      onPressed: widget.onPressed,
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            widget.icon,
+            SizedBox(height: 10),
+            Text(widget.label)
+          ]),
     );
   }
 }
