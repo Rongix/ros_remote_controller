@@ -18,10 +18,10 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Prerequisites
 
-You don't need functional real robot to run app and start development of your own project!
-You need ROS (kinetic - Ubuntu 18.04 /melodic - Ubuntu 16.04) installed on your machine. I recommend installing Ubuntu (Althought it is possible to run it on Windows PC).
-You need [Flutter](https://flutter.dev/docs/get-started/install).
-You need [Node.js](https://nodejs.org/en/) for interactive map. 
+- You don't need real robot to run app and navigate robot.
+- [ROS Melodic](http://wiki.ros.org/melodic) - Ubuntu 18.04 / [ROS Kinetic](http://wiki.ros.org/kinetic) - Ubuntu 16.04)
+- [Flutter](https://flutter.dev/docs/get-started/install).
+- [Node.js](https://nodejs.org/en/) for interactive map. 
 
 ## Installation
 ### Installation of ROS
@@ -94,8 +94,8 @@ git clone https://github.com/Rongix/RosHTTPNavigationMap.git
 ## Running ROS with application.
 Refer [ROBOTIS e-Manual for more information.](http://emanual.robotis.com/docs/en/platform/turtlebot3/overview/#overview)
 
-###Launch ROS
-You need to start fake robot simulation node if you don't own real robot. I recommend using turtlebot3. Read instruction how to use launch nodes and fake node in [simulation chapter](http://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#simulation).
+### Launch ROS
+Read instruction how to use launch nodes and fake node in [simulation chapter](http://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#simulation).
 ```
 roscore
 roslaunch turtlebot3_fake turtlebot3_fake.launch
@@ -106,7 +106,7 @@ roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 roslaunch '/home/rongix/catkin_ws/src/turtlebot3/turtlebot3_navigation/launch/move_base.launch'
 ```
 
-###Launch web components
+### Launch web components
 ```
 //NOTE: rosbridge_websocket starts on port 9090
 roslaunch rosbridge_server rosbridge_websocket.launch
