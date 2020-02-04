@@ -18,7 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Prerequisites
 
-- You don't need real robot to run app and navigate robot.
+- You don't need real robot to run app and navigate.
 - [ROS Melodic](http://wiki.ros.org/melodic) - Ubuntu 18.04 / [ROS Kinetic](http://wiki.ros.org/kinetic) - Ubuntu 16.04)
 - [Flutter](https://flutter.dev/docs/get-started/install).
 - [Node.js](https://nodejs.org/en/) for interactive map. 
@@ -79,7 +79,7 @@ export TURTLEBOT3_MODEL=waffle_pi
 ```
 
 ### Installation of Node.js
-You can install it with snap or grab installer from official site.
+You can install it with snap or grab installer from [official site](https://nodejs.org/en/).
 ```
 sudo snap install node --classic
 ```
