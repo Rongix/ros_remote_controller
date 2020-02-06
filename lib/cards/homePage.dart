@@ -40,6 +40,9 @@ class _HomePageState extends State<HomePage> {
             forceElevated: false,
             backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
+            brightness: Brightness.light,
+            //actionsIconTheme: IconThemeData(color: Colors.black),
+            iconTheme: IconThemeData(color: Colors.black),
             actions: <Widget>[
               IconButton(
                   icon: Icon(Icons.info),
