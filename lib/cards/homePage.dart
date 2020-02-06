@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:thumbstick/cards/sport.dart';
+import 'package:thumbstick/cards/woda.dart';
 import 'package:thumbstick/cards/zdrowie.dart';
 import 'package:thumbstick/main.dart';
 
+import 'kalendarz.dart';
 import 'mapNavigation.dart';
 
 class HomePage extends StatefulWidget {
@@ -105,19 +108,30 @@ class _HomePageState extends State<HomePage> {
                   icon: Icon(Icons.local_drink,
                       size: 65, color: Colors.blueAccent),
                   label: "Woda",
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => WodaPage()));
+                  }),
               ActivityButton(
                   splashColor: Colors.amber[100],
                   icon:
                       Icon(Icons.calendar_today, size: 65, color: Colors.amber),
                   label: "Kalendarz",
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => KalendarzPage()));
+                  }),
               ActivityButton(
                   splashColor: Colors.green[100],
                   icon: Icon(Icons.directions_bike,
                       size: 65, color: Colors.green),
                   label: "Sport",
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SportPage()));
+                  }),
             ],
           ),
           SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
