@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:thumbstick/rpiCamera.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
@@ -12,6 +13,9 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
+    // return AnnotatedRegion<SystemUiOverlayStyle>(
+    //   value: SystemUiOverlayStyle(
+    //       systemNavigationBarColor: Color.fromRGBO(127, 127, 127, 1)),
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -74,7 +78,8 @@ class _MapPageState extends State<MapPage> {
                           child: Container(
                             child: Text(
                               "Waypoints",
-                              style: TextStyle(fontSize: 25),
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.white),
                             ),
                           ),
                         ),
@@ -93,21 +98,44 @@ class _MapPageState extends State<MapPage> {
                             //     ]),
                             // Divider(),
                             FlatButton(
+                              onPressed: () {},
+                              onLongPress: () {},
+                              child: Text(
+                                "Kuchnia",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            Divider(),
+                            FlatButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Łazienka",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            Divider(),
+                            FlatButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Pokój 1",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            Divider(),
+                            FlatButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Pokój 2",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            Divider(),
+                            FlatButton(
                                 onPressed: () {},
-                                onLongPress: () {},
-                                child: Text("Kuchnia")),
-                            Divider(),
-                            FlatButton(
-                                onPressed: () {}, child: Text("Łazienka")),
-                            Divider(),
-                            FlatButton(
-                                onPressed: () {}, child: Text("Pokój 1")),
-                            Divider(),
-                            FlatButton(
-                                onPressed: () {}, child: Text("Pokój 2")),
-                            Divider(),
-                            FlatButton(
-                                onPressed: () {}, child: Icon(Icons.add)),
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.white54,
+                                )),
                             Divider(),
                           ],
                         ))
@@ -118,6 +146,7 @@ class _MapPageState extends State<MapPage> {
           )
         ],
       ),
+      // ),
     );
   }
 }

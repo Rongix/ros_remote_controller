@@ -26,21 +26,20 @@ dependencies:
   webview_flutter: ^0.3.19+2
   flutter_webview_plugin: 0.3.10+1
   zoom_widget: ^0.1.3
-
+  shared_preferences: ^0.5.6+1
+  ros_nodes:
+    git: https://github.com/Sashiri/ros_nodes.git
+  xml_rpc: ^0.2.2
+  xmlrpc_server:
+    git: https://github.com/Sashiri/xmlrpc_server.git
+  video_player: ^0.10.5
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  xml_rpc: ^0.2.2
-  xmlrpc_server:
-    git: https://github.com/Sashiri/xmlrpc_server.git
-  ros_nodes:
-    git: https://github.com/Sashiri/ros_nodes.git
-  video_player: ^0.10.5
+
   
-
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

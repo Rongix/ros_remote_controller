@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text(
                             "Zaloguj",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black54,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -184,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text(
                             "Zarejestruj się",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black54,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

@@ -43,7 +43,7 @@ class _AnalogThumbStickState extends State<AnalogThumbStick> {
     radius = baseSize / 2;
     msg = GeometryMsgsTwist();
     //ANDROID DEVICE DEFAULT IP WHEN TETHERING: 192.168.43.1
-    var config = RosNode('http://192.168.1.11:11311/', '192.168.1.14', 51235);
+    var config = RosNode('http://192.168.1.11:11311/', '192.168.1.21', 51235);
     var publisher = RosPublisher('sticky_publisher', 'cmd_vel', msg, config,
         publishInterval: Duration(milliseconds: 100));
     publisher.register();
@@ -83,30 +83,64 @@ class _AnalogThumbStickState extends State<AnalogThumbStick> {
         });
       },
       child: Material(
-        shape: CircleBorder(),
-        color: Colors.white30,
-        elevation: 2,
+        //OUTER RADIUS
+        shape: CircleBorder(
+            side: BorderSide(width: 2, color: Colors.grey.withAlpha((80)))),
+        color: Colors.white.withAlpha(0),
         child: Container(
           height: baseSize,
           width: baseSize,
           child: Center(
-            child: Transform.translate(
-              offset: offset,
-              child: Material(
-                shape: CircleBorder(),
-                color: Colors.black45,
-                //color: Color.fromRGBO(89, 89, 89, 1)
-                elevation: 4.0,
-                child: Container(
-                  height: stickSize,
-                  width: stickSize,
-                  child: Icon(
-                    Icons.blur_circular,
-                    size: 100,
-                    color: Colors.black12,
+            child: Stack(
+              children: <Widget>[
+                //Middle RADIUS
+                Center(
+                  child: Material(
+                    shape: CircleBorder(
+                        side: BorderSide(
+                            width: 4, color: Colors.grey.withAlpha((20)))),
+                    color: Colors.grey.withAlpha(0),
+                    child: Container(
+                      height: baseSize * 0.7,
+                      width: baseSize * 0.7,
+                    ),
                   ),
                 ),
-              ),
+                //Inner RADIUS
+                Center(
+                  child: Material(
+                    shape: CircleBorder(),
+                    color: Colors.grey.withAlpha(30),
+                    child: Container(
+                      height: stickSize,
+                      width: stickSize,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Transform.translate(
+                    offset: offset,
+                    child: Material(
+                      shape: CircleBorder(
+                          side: BorderSide(width: 2, color: Colors.black38)),
+                      color: Colors.grey,
+                      //color: Color.fromRGBO(89, 89, 89, 1)
+                      elevation: 4.0,
+                      child: Container(
+                        height: stickSize,
+                        width: stickSize,
+                        child: Center(
+                          child: Icon(
+                            Icons.blur_on,
+                            size: stickSize - 35,
+                            color: Colors.black26,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

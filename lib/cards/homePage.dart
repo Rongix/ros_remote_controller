@@ -28,167 +28,156 @@ class Activity {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.white),
-      home: Scaffold(
-        backgroundColor: Colors.grey[100],
-        body: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              //title: Text("Tuti App Center"),
-              pinned: false,
-              floating: false,
-              expandedHeight: 250,
-              centerTitle: false,
-              forceElevated: false,
-              backgroundColor: Colors.grey[100],
-
-              flexibleSpace: FlexibleSpaceBar(
-                stretchModes: <StretchMode>[
-                  StretchMode.blurBackground,
-                  StretchMode.fadeTitle,
-                ],
-                title: RichText(
-                  text: TextSpan(children: <TextSpan>[
-                    TextSpan(
-                        text: "Oldi\n",
-                        style:
-                            TextStyle(fontSize: 30, color: Colors.grey[100])),
-                    TextSpan(
-                        text: "Twój Robot Asystent",
-                        style:
-                            TextStyle(fontSize: 15, color: Colors.grey[100])),
-                  ]),
-                ),
-                centerTitle: false,
-                background: Stack(fit: StackFit.expand, children: <Widget>[
-                  Image.asset(
-                    'Images/robot_render.png',
-                    fit: BoxFit.cover,
-                    //color: Colors.white,
-                    //colorBlendMode: BlendMode.softLight,
-                  ),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment(0.0, 0.9),
-                            end: Alignment(0.0, 0.0),
-                            colors: <Color>[
-                          Colors.black38,
-                          Colors.transparent
-                        ])),
-                  )
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            pinned: false,
+            floating: false,
+            expandedHeight: 250,
+            centerTitle: false,
+            forceElevated: false,
+            backgroundColor: Colors.white,
+            automaticallyImplyLeading: false,
+            actions: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.info),
+                  padding: EdgeInsets.only(right: 20),
+                  onPressed: () {
+                    showInfo(context);
+                  }),
+            ],
+            flexibleSpace: FlexibleSpaceBar(
+              stretchModes: <StretchMode>[
+                StretchMode.blurBackground,
+                StretchMode.fadeTitle,
+              ],
+              title: RichText(
+                text: TextSpan(children: <TextSpan>[
+                  TextSpan(
+                      text: "Oldi\n",
+                      style: TextStyle(fontSize: 30, color: Colors.white)),
+                  TextSpan(
+                      text: "Twój Robot Asystent",
+                      style: TextStyle(fontSize: 15, color: Colors.white)),
                 ]),
-                // background: Image.network(
-                //     "https://previews.123rf.com/images/kurhan/kurhan1412/kurhan141200274/34363343-happy-people-.jpg",
-                //     fit: BoxFit.cover),
-
-                //centerTitle: true,
-                //titlePadding: EdgeInsets.all(65),
               ),
+              centerTitle: false,
+              background: Stack(fit: StackFit.expand, children: <Widget>[
+                Image.asset(
+                  'Images/robot_render.png',
+                  fit: BoxFit.cover,
+                ),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment(0.0, 0.9),
+                          end: Alignment(0.0, 0.0),
+                          colors: <Color>[Colors.black38, Colors.transparent])),
+                )
+              ]),
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 10,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 10,
             ),
-            ActivityHeader(
-                activityName: "Aktywności", fontSize: 22, spacing: 30),
-            SliverGrid.count(
-              crossAxisCount: 2,
-              childAspectRatio: 1.2,
-              children: [
-                ActivityButton(
-                    splashColor: Colors.red[100],
-                    icon: Icon(Icons.favorite, size: 70, color: Colors.red),
-                    label: "Zdrowie",
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ZdrowiePage()));
-                    }),
-                ActivityButton(
-                    splashColor: Colors.blue[100],
-                    icon: Icon(Icons.local_drink,
-                        size: 65, color: Colors.blueAccent),
-                    label: "Woda",
-                    onPressed: () {}),
-                ActivityButton(
-                    splashColor: Colors.amber[100],
-                    icon: Icon(Icons.calendar_today,
-                        size: 65, color: Colors.amber),
-                    label: "Kalendarz",
-                    onPressed: () {}),
-                ActivityButton(
-                    splashColor: Colors.green[100],
-                    icon: Icon(Icons.directions_bike,
-                        size: 65, color: Colors.green),
-                    label: "Sport",
-                    onPressed: () {}),
-              ],
+          ),
+          ActivityHeader(activityName: "Aktywności", fontSize: 22, spacing: 30),
+          SliverGrid.count(
+            crossAxisCount: 2,
+            childAspectRatio: 1.2,
+            children: [
+              ActivityButton(
+                  splashColor: Colors.red[100],
+                  icon: Icon(Icons.favorite, size: 70, color: Colors.red),
+                  label: "Zdrowie",
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ZdrowiePage()));
+                  }),
+              ActivityButton(
+                  splashColor: Colors.blue[100],
+                  icon: Icon(Icons.local_drink,
+                      size: 65, color: Colors.blueAccent),
+                  label: "Woda",
+                  onPressed: () {}),
+              ActivityButton(
+                  splashColor: Colors.amber[100],
+                  icon:
+                      Icon(Icons.calendar_today, size: 65, color: Colors.amber),
+                  label: "Kalendarz",
+                  onPressed: () {}),
+              ActivityButton(
+                  splashColor: Colors.green[100],
+                  icon: Icon(Icons.directions_bike,
+                      size: 65, color: Colors.green),
+                  label: "Sport",
+                  onPressed: () {}),
+            ],
+          ),
+          SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 10,
             ),
-            SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 10,
-              ),
+          ),
+          ActivityHeader(
+              activityName: "Wezwij Pomoc!", fontSize: 22, spacing: 30),
+          SliverGrid.count(
+            crossAxisCount: 1,
+            childAspectRatio: 2.5,
+            children: <Widget>[
+              ActivityButton(
+                  splashColor: Colors.red[100],
+                  icon: Icon(Icons.local_hospital, size: 65, color: Colors.red),
+                  label: "Pomoc",
+                  onPressed: () {
+                    callForHelp(context);
+                  }),
+            ],
+          ),
+          SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 10,
             ),
-            ActivityHeader(
-                activityName: "Wezwij Pomoc!", fontSize: 22, spacing: 30),
-            SliverGrid.count(
-              crossAxisCount: 1,
-              childAspectRatio: 2.5,
-              children: <Widget>[
-                ActivityButton(
-                    splashColor: Colors.red[100],
-                    icon:
-                        Icon(Icons.local_hospital, size: 65, color: Colors.red),
-                    label: "Pomoc",
-                    onPressed: () {
-                      callForHelp(context);
-                    }),
-              ],
-            ),
-            SliverToBoxAdapter(child: Divider(height: 1, thickness: 1)),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 10,
-              ),
-            ),
-            ActivityHeader(activityName: "Opiekun", fontSize: 22, spacing: 30),
-            SliverGrid.count(
-              crossAxisCount: 2,
-              childAspectRatio: 1.2,
-              children: <Widget>[
-                ActivityButton(
-                    splashColor: Colors.orangeAccent[100],
-                    icon: Icon(Icons.map, color: Colors.orangeAccent, size: 60),
-                    label: "Mapa",
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => MapPage()));
-                    }),
-                ActivityButton(
-                    splashColor: Colors.orangeAccent[100],
-                    icon: Icon(Icons.android,
-                        size: 55, color: Colors.orangeAccent),
-                    label: "Robot",
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RemoteController()));
-                    }),
-                //REMOTE CONTROLLER
-              ],
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(height: 20),
-            ),
-          ],
-        ),
+          ),
+          ActivityHeader(activityName: "Opiekun", fontSize: 22, spacing: 30),
+          SliverGrid.count(
+            crossAxisCount: 2,
+            childAspectRatio: 1.2,
+            children: <Widget>[
+              ActivityButton(
+                  splashColor: Colors.orangeAccent[100],
+                  icon: Icon(Icons.map, color: Colors.orangeAccent, size: 60),
+                  label: "Mapa",
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MapPage(),
+                        ));
+                  }),
+              ActivityButton(
+                  splashColor: Colors.orangeAccent[100],
+                  icon:
+                      Icon(Icons.android, size: 55, color: Colors.orangeAccent),
+                  label: "Robot",
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RemoteController()));
+                  }),
+              //REMOTE CONTROLLER
+            ],
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 1),
+          ),
+        ],
       ),
     );
   }
@@ -213,6 +202,28 @@ void callForHelp(BuildContext context) {
   );
   showDialog(
       context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return dialog;
+      });
+}
+
+void showInfo(BuildContext context) {
+  var dialog = AlertDialog(
+    title: Text("Informacja"),
+    content: Text(
+        "Aplikacja została wykonana w ramach projektu PBL 2019/2020:\nROBO-asystent jako element wyposażenia centrum kontroli osoby starszej.\n\nZespół projektu:\n\nIwona Chuchnowska\nAgnieszka Labus\nKatarzyna Białas\nPatrycja Dapa\nWiktoria Dziaduła\nPaweł Franitza\nSandra Niedzwiedź\nMichał Skolarczyk\nSandra Sładczyk"),
+    actions: <Widget>[
+      FlatButton(
+          child: const Text('Zamknij'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          }),
+    ],
+  );
+  showDialog(
+      context: context,
+      barrierDismissible: true,
       builder: (BuildContext context) {
         return dialog;
       });
