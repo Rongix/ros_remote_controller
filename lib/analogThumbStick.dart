@@ -43,7 +43,7 @@ class _AnalogThumbStickState extends State<AnalogThumbStick> {
     radius = baseSize / 2;
     msg = GeometryMsgsTwist();
     //ANDROID DEVICE DEFAULT IP WHEN TETHERING: 192.168.43.1
-    var config = RosNode('http://192.168.1.11:11311/', '192.168.1.21', 51235);
+    var config = RosNode('http://192.168.43.145:11311/', '192.168.43.92', 51235);
     var publisher = RosPublisher('sticky_publisher', 'cmd_vel', msg, config,
         publishInterval: Duration(milliseconds: 100));
     publisher.register();

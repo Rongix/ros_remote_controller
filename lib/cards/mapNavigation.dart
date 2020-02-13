@@ -46,7 +46,7 @@ class _MapPageState extends State<MapPage> {
               Expanded(
                 child: MyWebView(
                   title: 'Map',
-                  selectedUrl: 'http://192.168.1.11:1234/',
+                  selectedUrl: 'http://192.168.43.145:1234/',
                 ),
               )
               // Container(
