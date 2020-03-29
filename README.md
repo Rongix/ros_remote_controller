@@ -123,7 +123,7 @@ rosrun web_video_server web_video_server
 ```
 
 ## License
-This project is licensed under [GNU General Public License v3.0](https://github.com/Rongix/RosRemoteController/blob/master/LICENSE).
+This project is licensed under [Apache License 2.0](https://github.com/Rongix/RosRemoteController/blob/master/LICENSE).
 
 
 
