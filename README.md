@@ -2,6 +2,8 @@
 If you're interested only in navigation check out thi repo (no web-views used):
 https://github.com/Rongix/ros_navigation_command_app
 
+Please note I made this app as a beginner, there are some bad practices like not disposing some objects, architecture and project structure is also not great but it makes a really easy example to follow for Flutter beginners.
+
 # ROS Teleop Application
 
 This is a Flutter multiplatform (Android & iOS) project for interacting with ROS Robots based on ROS Melodic/Kinetic. Main function of the app is teleoperation of robots using virtual controller and camera view from the web server. 
