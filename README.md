@@ -1,8 +1,7 @@
 # Chack out refreshed version:
-If you're interested only in navigation check out thi repo (no web-views used):
-https://github.com/Rongix/ros_navigation_command_app
 
-Please note I made this app as a beginner, there are some bad practices like not disposing some objects, architecture and project structure is also not great but it makes a really easy example to follow for Flutter beginners.
+Please note this app was made by beginners, there are some bad practices like not disposing some objects, architecture and project structure is also not great but it makes a really easy example to follow. If you're interested only in navigation check out this repo (no web-views used):
+https://github.com/Rongix/ros_navigation_command_app
 
 # ROS Teleop Application
 
